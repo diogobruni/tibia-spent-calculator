@@ -222,7 +222,7 @@ var Calculator = React.createClass({
 			<div>
 				<div className="section">
 
-					<h3 className="header center">Supplies Spent</h3>
+					<h3 className="header center">Used Supplies</h3>
 					<form onSubmit={this.handleSubmit} className="">
 
 						<ul className="collapsible s12" data-collapsible="expandable">
@@ -233,20 +233,20 @@ var Calculator = React.createClass({
 								<div className="collapsible-body">
 									<div className="row">
 										<div className="col s12">
-											<ItemsField fields={this.state.fields.mp} items={this.state.items} onChange={this.onUsedChange} />
+											<ItemsField fields={this.state.fields.hp} items={this.state.items} onChange={this.onUsedChange} />
 										</div>
 									</div>
 								</div>
 							</li>
-
+							
 							<li>
 								<div className="collapsible-header waves-effect waves-teal">
-									Mana Points
+									Mana Potions
 								</div>
 								<div className="collapsible-body">
 									<div className="row">
 										<div className="col s12">
-											<ItemsField fields={this.state.fields.hp} items={this.state.items} onChange={this.onUsedChange} />
+											<ItemsField fields={this.state.fields.mp} items={this.state.items} onChange={this.onUsedChange} />
 										</div>
 									</div>
 								</div>
