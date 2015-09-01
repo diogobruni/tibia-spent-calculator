@@ -2,7 +2,8 @@ var Result = React.createClass({
 	render: function() {
 		return <p className="result">
 			<img src="assets/images/gold.gif" />
-			{this.props.total}
+			<br />
+			<strong>{this.props.total}</strong>
 		</p>;
 	}
 });
@@ -15,7 +16,7 @@ var ItemsField = React.createClass({
 
 		var createItem = function(field, index) {
 			return (
-				<div className="input-field col s1">
+				<div className="input-field col s2">
 					<i className="material-icons prefix">
 						<img src={'assets/images/' + items[field].imgSrc} />
 					</i>
@@ -30,7 +31,7 @@ var ItemsField = React.createClass({
 var Calculator = React.createClass({
 	getInitialState: function() {
 		return {
-			fields: [ 'mp', 'smp', 'gmp', 'hp', 'shp', 'ghp', 'uhp', 'gsp', 'ava', 'gfb', 'ths', 'sd', 'uh' ],
+			fields: [ 'mp', 'smp', 'gmp', 'hp', 'shp', 'ghp', 'uhp', 'gsp', 'ava', 'gfb', 'ths', 'sd' ],
 			items: {
 				// Mana Potions
 				mp: {
@@ -146,11 +147,19 @@ var Calculator = React.createClass({
 	},
 	render: function() {
 		return (
-			<div className="row">
-				<form onSubmit={this.handleSubmit} className="col s12">
-					<ItemsField fields={this.state.fields} items={this.state.items} onChange={this.onUsedChange}/>
-				</form>
-				<Result total={this.state.beatyValue} />
+			<div>
+				<div className="row">
+					<form onSubmit={this.handleSubmit} className="col s12">
+						<h3 className="center">Itens Utilizados</h3>
+						<ItemsField fields={this.state.fields} items={this.state.items} onChange={this.onUsedChange} />
+					</form>
+				</div>
+				<div className="row">
+					<h3 className="center">Valor Gasto</h3>
+					<div className="center">
+						<Result total={this.state.beatyValue} />
+					</div>
+				</div>
 			</div>
 		);
 	}
