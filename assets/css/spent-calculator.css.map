@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAIA,OAAQ,CACJ,KAAK,CAAE,OAAO,CACd,WAAW,CAAE,GAAG",
+"sources": ["../_sass/spent-calculator.scss"],
 "names": [],
 "file": "spent-calculator.css"
 }
