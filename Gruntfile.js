@@ -41,6 +41,13 @@ module.exports = function( grunt ) {
 						flatten: true,
 						src: [ 'bower_components/Materialize/font/roboto/*' ],
 						dest: 'assets/font/roboto'
+					},
+
+					{
+						expand: true,
+						flatten: true,
+						src: [ 'bower_components/react/JSXTransformer.js' ],
+						dest: 'assets/js'
 					}
 
 				]
