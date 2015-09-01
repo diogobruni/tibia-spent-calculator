@@ -1,0 +1,1 @@
+Number.prototype.kFormat=function(){for(var num=this.valueOf(),ks="";num>999;)ks+="K",num/=1e3;return num=num%2==0?num.toFixed(0):num.toFixed(2),num=Math.ceil(num),num+ks};var readyFunction=!1;jQuery(document).ready(function(){readyFunction=function(){jQuery(".collapsible").collapsible({accordion:!1}),jQuery(".quantityMask").mask("#",{reverse:!0})}});

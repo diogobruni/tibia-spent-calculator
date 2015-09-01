@@ -3,7 +3,7 @@ var Result = React.createClass({
 		return <p className="result">
 			<img src="assets/images/gold.gif" />
 			<br />
-			<strong className="h3">{this.props.total}</strong>
+			<strong className="h3" id="gold">{this.props.total}</strong>
 		</p>;
 	}
 });
@@ -196,8 +196,6 @@ var Calculator = React.createClass({
 		this.setState({text: e.target.value});
 	},
 	Recalc: function(e) {
-		console.log( 'recalc' );
-
 		var total = 0;
 
 		for( i in this.state.allFields ) {
@@ -208,8 +206,9 @@ var Calculator = React.createClass({
 		}
 
 		this.state.total = total;
+		var beatyValue = total.kFormat();
 
-		this.setState({ beatyValue: total });
+		this.setState({ beatyValue: beatyValue });
 	},
 	handleSubmit: function(e) {
 		e.preventDefault();
@@ -238,7 +237,7 @@ var Calculator = React.createClass({
 									</div>
 								</div>
 							</li>
-							
+
 							<li>
 								<div className="collapsible-header waves-effect waves-teal">
 									Mana Potions
@@ -322,11 +321,4 @@ var Calculator = React.createClass({
 });
 
 React.render(<Calculator />, document.getElementById('tibia-spent-calculator') );
-
-jQuery(document).ready(function(){
-	jQuery('.collapsible').collapsible({
-		accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-	});
-
-	jQuery('.quantityMask').mask('#', {reverse: true}); // For old browsers
-});
+readyFunction();
