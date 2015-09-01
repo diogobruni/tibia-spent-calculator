@@ -219,6 +219,16 @@ var Calculator = React.createClass({
 	render: function() {
 		return (
 			<div>
+
+				<div className="section">
+					<h3 className="header center">Value Spent</h3>
+					<div className="center">
+						<Result total={this.state.beatyValue} />
+					</div>
+				</div>
+				
+				<div class="divider"></div>
+
 				<div className="section">
 
 					<h3 className="header center">Used Supplies</h3>
@@ -307,14 +317,6 @@ var Calculator = React.createClass({
 					</form>
 				</div>
 
-				<div class="divider"></div>
-
-				<div className="section">
-					<h3 className="header center">Value Spent</h3>
-					<div className="center">
-						<Result total={this.state.beatyValue} />
-					</div>
-				</div>
 			</div>
 		);
 	}
