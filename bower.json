@@ -1,0 +1,23 @@
+{
+  "name": "tibia-spent-calculator",
+  "version": "1.0.0",
+  "homepage": "http://diogobruni.github.io/tibia-spent-calculator/",
+  "authors": [
+    "Diogo Bruni <diogobruni@gmail.com>"
+  ],
+  "description": "Tibia calculadora de gastos de hunt",
+  "main": "assets/js/main.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.4.0",
+    "Materialize": "materialize#~0.97.0",
+    "react": "~0.13.3"
+  }
+}
