@@ -20,7 +20,8 @@ var ItemsField = React.createClass({
 					<i className="material-icons prefix">
 						<img src={'assets/images/' + items[field].imgSrc} title={items[field].name}/>
 					</i>
-					<input id="icon_prefix" type="number" min="0" max="999999" className="validate quantityMask" name={field} onChange={onChange} />
+					<input id={field} type="number" min="0" max="999999" className="validate quantityMask" name={field} onChange={onChange} />
+					<label htmlFor={field}>{items[field].name}</label>
 				</div>
 			);
 		}
