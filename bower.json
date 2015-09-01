@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "font-awesome": "~4.4.0",
+    "jquery-mask-plugin": "~1.13.4",
     "Materialize": "materialize#~0.97.0",
     "react": "~0.13.3"
   }

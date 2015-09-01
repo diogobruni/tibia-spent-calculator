@@ -20,7 +20,7 @@ var ItemsField = React.createClass({
 					<i className="material-icons prefix">
 						<img src={'assets/images/' + items[field].imgSrc} title={items[field].name}/>
 					</i>
-					<input id="icon_prefix" type="text" className="validate" name={field} onChange={onChange} defaultValue={items[field].used} />
+					<input id="icon_prefix" type="number" min="0" max="999999" className="validate quantityMask" name={field} onChange={onChange} />
 				</div>
 			);
 		}
@@ -326,4 +326,6 @@ jQuery(document).ready(function(){
 	jQuery('.collapsible').collapsible({
 		accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
 	});
+
+	jQuery('.quantityMask').mask('#', {reverse: true}); // For old browsers
 });
