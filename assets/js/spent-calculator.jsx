@@ -20,8 +20,8 @@ var ItemsField = React.createClass({
 					<i className="material-icons prefix">
 						<img src={'assets/images/' + items[field].imgSrc} title={items[field].name}/>
 					</i>
-					<input id={field} type="number" min="0" max="999999" className="validate quantityMask" name={field} onChange={onChange} />
-					<label htmlFor={field}>{items[field].name}</label>
+					<input id={field} type="number" min="0" max="999999" className="validate quantityMask" name={field} onChange={onChange} defaultValue={items[field].used && items[field].used > 0 ? items[field].used : ''} />
+					<label className={items[field].used && items[field].used > 0 ? 'active' : ''} htmlFor={field}>{items[field].name}</label>
 				</div>
 			);
 		}
@@ -48,7 +48,7 @@ var Calculator = React.createClass({
 				fieldRunes: [ 'fbomb', 'fwall', 'ebomb', 'ewall' ],
 				ammo: [ 'astar', 'carrow', 'pbolt' ]
 			},
-			items: {
+			items: localStorage.items ? JSON.parse( localStorage.getItem('items') ) : {
 				// Mana Potions
 				mp: {
 					name: 'Mana Potion',
@@ -180,7 +180,8 @@ var Calculator = React.createClass({
 			},
 
 			total: 0,
-			beatyValue: '0'
+			beatyValue: '0',
+			collapsible: localStorage.collapsible ? JSON.parse( localStorage.getItem('collapsible') ) : {}
 		};
 	},
 	onUsedChange: function(e) {
@@ -190,12 +191,14 @@ var Calculator = React.createClass({
 		var used = e.target.value;
 		this.state.items[ item ].used = used;
 
+		localStorage.setItem( 'items', JSON.stringify( this.state.items ) );
+
 		this.Recalc();
 	},
 	onChange: function(e) {
 		this.setState({text: e.target.value});
 	},
-	Recalc: function(e) {
+	Recalc: function() {
 		var total = 0;
 
 		for( i in this.state.allFields ) {
@@ -209,6 +212,27 @@ var Calculator = React.createClass({
 		var beatyValue = total.kFormat();
 
 		this.setState({ beatyValue: beatyValue });
+	},
+	changeCollapseState: function( index, state ) {
+		this.state.collapsible[ index ] = state;
+		localStorage.setItem( 'collapsible', JSON.stringify( this.state.collapsible ) );
+	},
+	componentDidMount: function() {
+		readyFunction();
+		this.Recalc();
+
+		for( i in this.state.collapsible ) {
+			if ( this.state.collapsible[i] == true ) {
+				jQuery('.collapsible li:eq('+ i +') .collapsible-header').click();
+			}
+		}
+
+		var that = this;
+		jQuery('.collapsible li').click(function() {
+			var index = jQuery(this).index();
+			var state = jQuery(this).hasClass('active');
+			that.changeCollapseState( index, state );
+		});
 	},
 	handleSubmit: function(e) {
 		e.preventDefault();
@@ -316,11 +340,9 @@ var Calculator = React.createClass({
 
 					</form>
 				</div>
-
 			</div>
 		);
 	}
 });
 
 React.render(<Calculator />, document.getElementById('tibia-spent-calculator') );
-readyFunction();
