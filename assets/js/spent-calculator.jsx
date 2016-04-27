@@ -104,7 +104,7 @@ var Calculator = React.createClass({
 					name: 'Supreme Health Potion',
 					price: 500,
 					used: 0,
-					imgSrc: 'uhp.gif'
+					imgSrc: 'sphp.gif'
 				},
 
 				// Great Spirit Potion
