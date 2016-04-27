@@ -33,17 +33,17 @@ var Calculator = React.createClass({
 	getInitialState: function() {
 		return {
 			allFields: [
-				'mp', 'smp', 'gmp',
-				'hp', 'shp', 'ghp', 'uhp',
-				'gsp',
+				'mp', 'smp', 'gmp', 'ump',
+				'hp', 'shp', 'ghp', 'uhp', 'sphp',
+				'gsp', 'usp',
 				'ava', 'gfb', 'ths', 'sd', 'uh',
 				'fbomb', 'fwall', 'ebomb', 'ewall',
 				'astar', 'carrow', 'pbolt'
 			],
 			fields: {
-				mp: [ 'mp', 'smp', 'gmp' ],
-				hp: [ 'hp', 'shp', 'ghp', 'uhp' ],
-				mhp: [ 'gsp' ],
+				mp: [ 'mp', 'smp', 'gmp', 'ump' ],
+				hp: [ 'hp', 'shp', 'ghp', 'uhp', 'sphp' ],
+				mhp: [ 'gsp', 'usp' ],
 				runes: [ 'ava', 'gfb', 'ths', 'sd' ],
 				fieldRunes: [ 'fbomb', 'fwall', 'ebomb', 'ewall' ],
 				ammo: [ 'astar', 'carrow', 'pbolt' ]
@@ -67,6 +67,12 @@ var Calculator = React.createClass({
 					price: 120,
 					used: 0,
 					imgSrc: 'gmp.gif'
+				},
+				ump: {
+					name: 'Ultimate Mana Potion',
+					price: 350,
+					used: 0,
+					imgSrc: 'ump.gif'
 				},
 
 				// Health Potions
@@ -94,6 +100,12 @@ var Calculator = React.createClass({
 					used: 0,
 					imgSrc: 'uhp.gif'
 				},
+				sphp: {
+					name: 'Supreme Health Potion',
+					price: 500,
+					used: 0,
+					imgSrc: 'uhp.gif'
+				},
 
 				// Great Spirit Potion
 				gsp: {
@@ -101,6 +113,12 @@ var Calculator = React.createClass({
 					price: 190,
 					used: 0,
 					imgSrc: 'gsp.gif'
+				},
+				usp: {
+					name: 'Ultimate Spirit Potion',
+					price: 350,
+					used: 0,
+					imgSrc: 'usp.gif'
 				},
 
 				// Runes
